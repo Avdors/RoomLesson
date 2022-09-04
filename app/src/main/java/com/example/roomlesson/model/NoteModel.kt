@@ -3,6 +3,7 @@ package com.example.roomlesson.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "Note_table")
 class NoteModel (
@@ -12,4 +13,4 @@ class NoteModel (
     var title: String = "",
     @ColumnInfo
     var description: String = ""
-        )
+        ) : Serializable
