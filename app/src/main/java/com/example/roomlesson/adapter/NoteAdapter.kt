@@ -12,22 +12,26 @@ import com.example.roomlesson.screens.start.StartFragment
 import kotlinx.coroutines.MainScope
 
 class NoteAdapter: RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
-    lateinit var binding: ItemLayoutBinding
+   // lateinit var binding: ItemLayoutBinding
     var listNote = emptyList<NoteModel>()
 
     class NoteViewHolder(view: View): RecyclerView.ViewHolder(view) {
-
+        val binding: ItemLayoutBinding
+        init {
+            binding = ItemLayoutBinding.bind(view)
+        }
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+       // binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
        return NoteViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        binding.itemTitle.text = listNote[position].title
+        holder.binding.itemTitle.text = listNote[position].title
+
     }
 
     override fun getItemCount(): Int {
